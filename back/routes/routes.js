@@ -78,7 +78,6 @@ const getParams = (request) => {
     return Object.keys(param).length == 0 ? undefined : param; // 빈객체면 그냥 undefined 반환
 }
 
-// NYD Original
 // 응답값 JSON 처리 함수
 const respToJson = (response, responseCode, data) => {
     const result = response.status(responseCode).json(data)
