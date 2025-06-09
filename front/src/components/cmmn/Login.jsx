@@ -31,7 +31,8 @@ const Login = () => {
 
       // 구글 로그인 (팝업)
     const googleLogin = () => {
-        const popup = window.open(`${import.meta.env.VITE_BACKEND_DOMAIN}/auth/google`, 'googleLoginPopup', 'width=500,height=600');
+        // const popup = window.open(`${import.meta.env.VITE_BACKEND_DOMAIN}/auth/google`, 'googleLoginPopup', 'width=500,height=600');
+        location.href = `${import.meta.env.VITE_BACKEND_DOMAIN}/auth/google`;
         // const interval = setInterval(async () => {
         //     try {
         //         const res = await fetch('http://back.aws.com/api/me', {
@@ -45,21 +46,6 @@ const Login = () => {
         //         }
         //     } catch {}
         // }, 1000);
-
-        window.addEventListener('message', async (event) => {
-            if (event.origin !== 'http://localhost:5000') return;
-            if (event.data.type === 'oauth-success') {
-                console.log("???");
-                // 인증 후 사용자 정보 fetch
-                try {
-                    // const res = await axios.get('http://localhost:5000/api/me');
-                    // setUser(res.data.user);
-                } catch {
-                    setUser(null);
-                }
-            }
-        });
-
     }
 
 
