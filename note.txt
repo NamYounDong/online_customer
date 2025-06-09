@@ -1,0 +1,62 @@
+* modules : 
+  1) express : Node.js에서 웹 서버와 라우팅을 쉽게 구축할 수 있게 해주는 기본 웹 프레임워크.
+  2) express-session : 서버 메모리(혹은 외부 저장소)에 세션을 저장해서 로그인 상태를 유지하게 해줌
+  3) passport : 인증 미들웨어. 다양한 로그인 전략(Local, Google, Kakao 등)을 쉽게 통합
+	      - 모듈화된 인증 구조. 세션 연동 or JWT와도 사용 가능
+  4) passport-local : passport의 ID/비밀번호 기반 로컬 로그인 구현
+  5) pg : PostgreSQL DB와 Node.js를 연결해주는 공식 PostgreSQL 클라이언트
+  6) cors : Cross-Origin Resource Sharing 설정 미들웨어. 다른 도메인에서 API 요청 허용/제한 설정
+  7) dotenv : .env 파일에 저장된 환경변수들을 process.env로 로드
+  8) helmet : Express 앱에 보안 관련 HTTP 헤더를 자동 설정해주는 미들웨어
+	     - XSS, 클릭재킹, MIME 타입 스니핑 등 다양한 공격 방지.
+  9) crypto : Node.js 기본 내장 모듈. 암호화, 해싱, 랜덤 바이트 생성 등 보안 기능 제공
+                 - 비밀번호 해시 처리, 토큰 생성 등에 활용됨
+  10) nodemon : 소스 수정 시 자동반영
+  11) camelcase-keys : 키 aaa_aaa 형식을 aaaAaa로 변형( 카멜 케이스 형식으로 변환 )
+
+* 설치 : 
+- npm install express express-session passport passport-local pg cors dotenv helmet crypto nodemon fs uuid multer camelcase-keys passport-google-oauth20
+
+
+* 프로젝트 구성
+1. 백엔드
+project-root/
+├── index.js
+├── config/
+│   ├── database.js
+│   ├── cmmn.js
+│   └── passport.js
+├── routes/
+│   └── routes.js
+├── controllers/
+│   ├── prodControllers.js
+│   ├── userControllers.js
+│   └── mypageControllers.js
+└── .env
+
+
+2. 백엔드
+project-root/src
+├── main.jsx
+├── App.jsx
+├── index.css
+├── css/
+│   ├── myPage.css
+│   ├── login.css
+│   └── product.css
+├── js/
+│   ├── config/
+│   │   └── cmmn.js
+│   └── utils/
+│        ├── requests.js
+│        └── util.js
+├── components/
+│   ├── cmmn/
+│   │   ├── Home.jsx
+│   │   └── Login.jsx
+│   ├── myPage/
+│   │   └── MyPage.jsx
+│   └── product/
+│        ├── ProductList.jsx
+│        └── ProductDetail.jsx
+└── .env

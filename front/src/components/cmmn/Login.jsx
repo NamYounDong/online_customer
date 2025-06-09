@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { request } from '../../js/utils/requests';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
 
@@ -31,40 +32,30 @@ const Login = () => {
 
       // 구글 로그인 (팝업)
     const googleLogin = () => {
-        // const popup = window.open(`${import.meta.env.VITE_BACKEND_DOMAIN}/auth/google`, 'googleLoginPopup', 'width=500,height=600');
+        toast.info("구글 로그인으로 이동합니다.", {
+            position: "bottom-center"
+        });
         location.href = `${import.meta.env.VITE_BACKEND_DOMAIN}/auth/google`;
-        // const interval = setInterval(async () => {
-        //     try {
-        //         const res = await fetch('http://back.aws.com/api/me', {
-        //             credentials: 'include',
-        //         })
-        //         if (res.ok) {
-        //             const data = await res.json();
-        //             console.log(data);
-        //             clearInterval(interval)
-        //             popup.close()
-        //         }
-        //     } catch {}
-        // }, 1000);
     }
 
 
 
     return (
         <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-        <h1> 로그인 시스템 (세션 기반)</h1>
-            <div>
-              <input placeholder="ID (이메일)" name="id" value={id} onChange={handleChange}/><br />
-              <input type="password" placeholder="비밀번호" name="password" value={password} onChange={handleChange}/><br />
-              <button onClick={login}>일반 로그인</button>
-            </div>
-  
-            <hr />
-  
-            <div>
-              <button onClick={googleLogin}>Google 로그인</button>
-            </div>
-      </div>
+            <h1> 로그인 시스템 (세션 기반)</h1>
+                <div>
+                <input placeholder="ID (이메일)" name="id" value={id} onChange={handleChange}/><br />
+                <input type="password" placeholder="비밀번호" name="password" value={password} onChange={handleChange}/><br />
+                <button onClick={login}>일반 로그인</button>
+                </div>
+    
+                <hr />
+    
+                <div>
+                <button onClick={googleLogin}>Google 로그인</button>
+                </div>
+                <ToastContainer/>
+        </div>
     )
 }
 
